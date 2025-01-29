@@ -19,6 +19,7 @@ The merge workflows and Dependabot ensures that your repository automatically ke
 ```yaml
 jobs:
   call:
+    if: ${{ github.event_name == 'pull_request' && github.event.pull_request.user.login == 'dependabot[bot]' }}
     uses: tmknom/merge-workflows/.github/workflows/github-actions.yml@v0
     with:
       pull-request: ${{ github.event.pull_request.number }}

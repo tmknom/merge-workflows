@@ -29,10 +29,17 @@ To use this workflow in your repository, call it from another workflow and speci
 name: Merge
 on:
   pull_request:
-    paths: ["action.yml", ".github/workflows/*.yml"]
+    paths: [".github/workflows/*.yml", ".github/workflows/*.yaml"]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
 
 jobs:
   call:
+    if: ${{ github.event_name == 'pull_request' && github.event.pull_request.user.login == 'dependabot[bot]' }}
     uses: tmknom/merge-workflows/.github/workflows/github-actions.yml@v0
     with:
       pull-request: ${{ github.event.pull_request.number }}
