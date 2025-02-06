@@ -37,11 +37,13 @@ jobs:
 
       - name: Create base branch
         id: base
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
         run: |
           set -x
           branch="pseudo/base/${GITHUB_JOB}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           echo "branch=${branch}" >> "${GITHUB_OUTPUT}"
-          git switch -c "${branch}"
+          git switch -c "${branch}" "${DEFAULT_BRANCH}"
           git push origin "${branch}"
 
       - name: Private Generate GitHub Token
