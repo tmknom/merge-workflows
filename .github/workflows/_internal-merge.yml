@@ -1,7 +1,7 @@
 name: Internal Merge
 on:
   pull_request:
-    paths: ["action.yml", ".github/workflows/*.yml"]
+    paths: [".github/workflows/_internal-*.yml", ".github/workflows/_internal-*.yaml"]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -11,6 +11,7 @@ permissions: {}
 
 jobs:
   call:
+    if: ${{ github.event_name == 'pull_request' && github.event.pull_request.user.login == 'dependabot[bot]' }}
     uses: ./.github/workflows/github-actions.yml
     with:
       pull-request: ${{ github.event.pull_request.number }}
