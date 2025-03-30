@@ -55,7 +55,7 @@ jobs:
         uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7 # v2.3.0
 
       - name: Validate package ecosystem
-        uses: tmknom/validation-action@b10749eb0d0599e43b5a8283c3f916a2748d7476 # v0.7.1
+        uses: tmknom/validation-action@03f9fab9eaf1921547a1dbf5607217f6a899a6c6 # v0.7.2
         with:
           enum: github_actions
           value: ${{ steps.metadata.outputs.package-ecosystem || 'github_actions' }}
