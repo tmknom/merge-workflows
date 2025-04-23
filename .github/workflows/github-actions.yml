@@ -77,6 +77,6 @@ jobs:
 
       - name: Merge PR
         if: ${{ steps.check.outputs.mergeable == 'true' }}
-        uses: tmknom/merge-pr-action@fc1f26011c2b31409c37a4ac9792d68bdc29321c # v0.4.0
+        uses: tmknom/merge-pull-request-action@fc1f26011c2b31409c37a4ac9792d68bdc29321c # v0.4.0
         with:
           pull-request: ${{ inputs.pull-request }}
