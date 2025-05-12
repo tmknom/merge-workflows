@@ -52,7 +52,7 @@ jobs:
       - name: Fetch metadata
         if: ${{ inputs.github-actor == 'dependabot[bot]' }}
         id: metadata
-        uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7 # v2.3.0
+        uses: dependabot/fetch-metadata@08eff52bf64351f401fb50d4972fa95b9f2c2d1b # v2.4.0
 
       - name: Validate package ecosystem
         uses: tmknom/validation-action@cbf86937b6f4e1d7fb7f6329c63379d043da3da9 # v0.7.3
