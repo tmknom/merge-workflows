@@ -47,7 +47,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout
-        uses: tmknom/checkout-action@v1
+        uses: tmknom/secure-checkout-action@v1
 
       - name: Fetch metadata
         if: ${{ inputs.github-actor == 'dependabot[bot]' }}
